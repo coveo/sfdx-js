@@ -1,5 +1,5 @@
 {
-  "name": "sfdx-js",
+  "name": "sfdx-js-fake",
   "version": "2.1.0",
   "description": "A node wrapper for Salesforce DX",
   "keywords": [
@@ -27,7 +27,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   },
   "scripts": {
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
