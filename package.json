@@ -31,6 +31,7 @@
   },
   "scripts": {
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "postinstall": "ts-node tools/semantic-release-prepare",
     "prebuild": "rimraf dist",
     "build": "tsc && rollup -c && rimraf compiled && typedoc --out dist/docs --target cjs --theme minimal src",
     "start": "tsc-watch --onSuccess \"rollup -c\"",
@@ -42,7 +43,9 @@
     "commit": "git-cz",
     "precommit": "lint-staged",
     "run-generator": "node tools/generate-files.js",
-    "generate": "sfdx force:doc:commands:display --json > commands.json && npm run run-generator"
+    "generate": "sfdx force:doc:commands:display --json > commands.json && npm run run-generator",
+    "prepush": "npm run test:prod && npm run build",
+    "commitmsg": "validate-commit-msg"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [

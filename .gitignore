@@ -11,3 +11,4 @@ src/generated
 .awcache
 commands.json
 compiled_tools*
+package-lock.json
