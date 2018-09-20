@@ -1,13 +1,12 @@
-import { CommandBuilder } from "../../src/core/commandBuilder";
 import { ICommandRunner } from "../../src/core/commandRunner";
-import { ICommandExecutioner, CommandExecutioner } from "../../src/core/commandExecutioner";
+import { CommandExecutioner } from "../../src/core/commandExecutioner";
 import { Apex } from "../../src/generated/apex";
 import { Config } from "../../src/generated/config";
 import { Auth } from "../../src/generated/auth";
 
 describe("Can create commands", () => {
-  let commandRunnerMock;
-  let commandRunnerMockImpl;
+  let commandRunnerMock: jest.Mock<ICommandRunner>;
+  let commandRunnerMockImpl: ICommandRunner;
   let commandExecutioner: CommandExecutioner;
 
   // APIs
