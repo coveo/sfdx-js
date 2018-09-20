@@ -7,7 +7,7 @@ export class ResponseParser {
     response = this.sanitizeResponse(response);
 
     // If the response is blank, it means there is nothing to parse. Return undefined.
-    if (response === undefined || _.isEmpty(response)) {
+    if (_.isEmpty(response)) {
       return undefined;
     }
 
@@ -22,7 +22,7 @@ export class ResponseParser {
   }
 
   private sanitizeResponse(response: string) {
-    if (response === undefined) {
+    if (_.isEmpty(response)) {
       return response;
     }
 

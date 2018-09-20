@@ -41,8 +41,18 @@ describe("Can parse commands", () => {
     expect(response).toBe(undefined);
   });
 
-  it("new line input", () => {
+  it("New line input", () => {
     const response = responseParser.parse<any>("\n");
     expect(response).toBe(undefined);
+  });
+
+  it("Bad json input", () => {
+    const badJson = "{{}";
+    jest.spyOn(global.console, "log").mockImplementation(msg => {
+      expect(msg).toContain("Cannot parse");
+    });
+
+    const response = responseParser.parse<any>(badJson);
+    expect(response).toBe(badJson);
   });
 });
