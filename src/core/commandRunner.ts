@@ -59,7 +59,7 @@ export class CommandRunner implements ICommandRunner {
             Object.keys(stderrJSON).length === 1 &&
             stderrJSON.hasOwnProperty("warnings")
           ) {
-            resolve(`Completed with warnings:\n${stderr}\n\n${stdout}`);
+            resolve(JSON.stringify({ ...JSON.parse(stdout), ...JSON.parse(stderr) }));
           }
           reject(stderr);
         } else {

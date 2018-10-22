@@ -30,12 +30,10 @@ describe("Can return the output of the command", () => {
       useLiveLog: false
     };
     let commandRunner = new CommandRunner(mockedCommandRunnerOptions);
-    let payload = `{ "warnings": ["boop", "beep", "bop"] }`;
-    expect(
-      await commandRunner.runCommand(
-        `>&2 echo ${platform() === "win32" ? payload : payload.replace(/"/g, '\\"')}`
-      )
-    ).toContain("Completed with warnings");
+    // warningTest.js is a simple Node two stringified JSON, one into stdout, the other into stderr.
+    let commandResult = JSON.parse(await commandRunner.runCommand("node test/warningTest.js"));
+    expect(commandResult).toHaveProperty(["warnings"]);
+    expect(commandResult).toHaveProperty(["result"]);
   });
 
   it("Should fail if there's something else or more than a warning in the stderr", async () => {
@@ -46,10 +44,16 @@ describe("Can return the output of the command", () => {
     };
     let commandRunner = new CommandRunner(mockedCommandRunnerOptions);
     let payload = `{ "warnings": ["boop", "beep", "bop"], "errors": 42 }`;
-    expect(
-      commandRunner.runCommand(
-        `>&2 echo ${platform() === "win32" ? payload : payload.replace(/"/g, '\\"')}`
-      )
-    ).rejects.toEqual(payload + EOL);
+    expect(commandRunner.runCommand(`>&2 echo ${formatJsonString(payload)}`)).rejects.toEqual(
+      payload + EOL
+    );
   });
 });
+
+/**
+ * Replace " by \\" if not on win32 so it can be properly interpreted on bash.
+ * @param jsonString readable/ps stringified JSON .
+ */
+function formatJsonString(jsonString: string) {
+  return platform() === "win32" ? jsonString : jsonString.replace(/"/g, '\\"');
+}
