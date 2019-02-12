@@ -1937,9 +1937,10 @@ esutils@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
 
-event-stream@~3.3.0:
+event-stream@=3.3.4:
   version "3.3.4"
-  resolved "http://registry.npmjs.org/event-stream/-/event-stream-3.3.4.tgz#4ab4c9a0f5a54db9338b4c34d86bfce8f4b35571"
+  resolved "https://registry.yarnpkg.com/event-stream/-/event-stream-3.3.4.tgz#4ab4c9a0f5a54db9338b4c34d86bfce8f4b35571"
+  integrity sha1-SrTJoPWlTbkzi0w02Gv86PSzVXE=
   dependencies:
     duplexer "~0.1.1"
     from "~0"
@@ -4585,6 +4586,11 @@ nice-try@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.4.tgz#d93962f6c52f2c1558c0fbda6d512819f1efe1c4"
 
+node-cleanup@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/node-cleanup/-/node-cleanup-2.1.2.tgz#7ac19abd297e09a7f72a71545d951b517e4dde2c"
+  integrity sha1-esGavSl+Caf3KnFUXZUbUX5N3iw=
+
 node-emoji@^1.4.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/node-emoji/-/node-emoji-1.8.1.tgz#6eec6bfb07421e2148c75c6bba72421f8530a826"
@@ -5418,11 +5424,12 @@ prr@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/prr/-/prr-1.0.1.tgz#d3fc114ba06995a45ec6893f484ceb1d78f5f476"
 
-ps-tree@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/ps-tree/-/ps-tree-1.1.0.tgz#b421b24140d6203f1ed3c76996b4427b08e8c014"
+ps-tree@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/ps-tree/-/ps-tree-1.2.0.tgz#5e7425b89508736cdd4f2224d028f7bb3f722ebd"
+  integrity sha512-0VnamPPYHl4uaU/nSFeZZpR21QAWRz+sRv4iW9+v/GS/J5U5iZB5BNN6J0RMoOvdx2gWM2+ZFMIm58q24e4UYA==
   dependencies:
-    event-stream "~3.3.0"
+    event-stream "=3.3.4"
 
 pseudomap@^1.0.2:
   version "1.0.2"
@@ -6479,6 +6486,11 @@ string-argv@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/string-argv/-/string-argv-0.0.2.tgz#dac30408690c21f3c3630a3ff3a05877bdcbd736"
 
+string-argv@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/string-argv/-/string-argv-0.1.1.tgz#66bd5ae3823708eaa1916fa5412703150d4ddfaf"
+  integrity sha512-El1Va5ehZ0XTj3Ekw4WFidXvTmt9SrC0+eigdojgtJMVtPkF0qbBe9fyNSl9eQf+kUHnTSQxdQYzuHfZy8V+DQ==
+
 string-length@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/string-length/-/string-length-2.0.0.tgz#d40dbb686a3ace960c1cffca562bf2c45f8363ed"
@@ -6788,13 +6800,15 @@ ts-node@^7.0.1:
     source-map-support "^0.5.6"
     yn "^2.0.0"
 
-tsc-watch@^1.0.26:
-  version "1.0.26"
-  resolved "https://registry.yarnpkg.com/tsc-watch/-/tsc-watch-1.0.26.tgz#a9130775b018b46b03116840debaac6dd40fbc56"
+tsc-watch@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/tsc-watch/-/tsc-watch-2.0.0.tgz#21070195ae901841694bdb2eaf5925f19bde0337"
+  integrity sha512-rftOduLMWwGBm8gASOrktaPFzu/dnRXb52eGifGNM5YOuSRLqlqb6VD5IoAxMmatEfKxHVfGGiNnp+/8Y54CQA==
   dependencies:
-    chalk "^2.3.0"
     cross-spawn "^5.1.0"
-    ps-tree "^1.1.0"
+    node-cleanup "^2.1.2"
+    ps-tree "^1.2.0"
+    string-argv "^0.1.1"
     strip-ansi "^4.0.0"
 
 tslib@1.9.0:
