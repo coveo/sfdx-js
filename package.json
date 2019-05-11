@@ -65,7 +65,7 @@
     "commitizen": "^3.0.0",
     "coveralls": "^3.0.2",
     "cz-conventional-changelog": "^2.1.0",
-    "fs-extra": "^7.0.0",
+    "fs-extra": "^8.0.0",
     "husky": "^1.1.0",
     "jest": "^23.5.0",
     "jest-cli": "23.5.0",
